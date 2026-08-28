@@ -1,0 +1,87 @@
+@import "leaflet/dist/leaflet.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-navy: #0a2540;
+  --accent-saffron: #e67300;
+  --accent-green: #0b7336;
+}
+
+body {
+  color: #1f2937;
+  background: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Official Government Stamp Watermark */
+.gov-stamp-watermark {
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Verification Stamp Styling */
+.official-stamp {
+  border: 2px dashed #0b7336;
+  color: #0b7336;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.official-stamp-rejected {
+  border: 2px dashed #dc2626;
+  color: #dc2626;
+}
+
+.official-stamp-breached {
+  border: 2px dashed #b91c1c;
+  color: #b91c1c;
+  background-color: #fef2f2;
+}
+
+/* Leaflet Map Customizations */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+
+/* Pulse animation for SLA Breached alerts */
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-breach {
+  animation: pulse-red 2s infinite ease-in-out;
+}
